@@ -18,8 +18,60 @@
             } else {
                 return 'Scissors';
             }
+        };
+
+    /*  function playRound(playerSelection, computerSelection) {
+            if (playerSelection == 'rock' && computerSelection === 'Rock') {
+                return "No winner";
+            }
+        }
+    */
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = prompt("Rock paper scissors ?!").toLowerCase();
+            computerSelection = computerPlay();
+            switch(true) {
+                case playerSelection == 'rock' && computerSelection === 'Rock':
+                    return "No winner";
+                    break;
+                case playerSelection == 'paper' && computerSelection === 'Paper':
+                    return "No winner";
+                    break;
+                case playerSelection == 'scissors' && computerSelection === 'Scissors':
+                    return "No winner";
+                    break;
+
+                case playerSelection == 'scissors' && computerSelection === 'Rock':
+                    return "You lose! Rock beats Scissors";
+                    break;
+                case playerSelection == 'scissors' && computerSelection === 'Paper':
+                    return "You win! Scissors beats Paper";
+                    break;
+
+                case playerSelection == 'rock' && computerSelection === 'Paper':
+                    return "You lose! Paper beats Rock";
+                    break;
+                case playerSelection == 'rock' && computerSelection === 'Scissors':
+                    return "You win! Rock beats Scissors";
+                    break;
+
+                case playerSelection == 'paper' && computerSelection === 'Rock':
+                    return "You win! Paper beats Rock";
+                    break;
+                case playerSelection == 'paper' && computerSelection === 'Scissors':
+                    return "You lose! Scissors beats Paper";
+                    break;
+            }
         }
 
+        console.log(playRound());
+
+        function game() {
+            console.log(playRound());
+            console.log(playRound());
+            console.log(playRound());
+            console.log(playRound());
+            console.log(playRound());
+        }
 
     </script>
 </body>
