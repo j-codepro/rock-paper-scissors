@@ -9,6 +9,8 @@
 <body>
     <script>
         
+        
+        // computer choice
         function computerPlay() {
             let random = Math.floor(Math.random() * 3);
             if (random === 0) {
@@ -23,6 +25,7 @@
         let scorePlayer = 0;
         let scoreComputer = 0;
         
+        // declare who is the winner of the game 
         function isWinner () {
             if (scorePlayer > scoreComputer) {
                 return console.log(`Result: You won the game! You ${scorePlayer} - Computer ${scoreComputer}`);
@@ -33,6 +36,7 @@
             }
         };
 
+        // calculate who is the winner of the round and add score
         function playRound(playerSelection, computerSelection) {
             playerSelection = prompt("Rock paper scissors ?!").toLowerCase();
             computerSelection = computerPlay();
@@ -60,6 +64,7 @@
             }
         }
 
+        // start the game
         function game() {
             console.log('Round 1');
             console.log(playRound());
