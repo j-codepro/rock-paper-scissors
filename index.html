@@ -23,7 +23,7 @@
         let scorePlayer = 0;
         let scoreComputer = 0;
         
-        function whoWin () {
+        function isWinner () {
             if (scorePlayer > scoreComputer) {
                 return console.log(`Result: You won the game! You ${scorePlayer} - Computer ${scoreComputer}`);
             } else if (scorePlayer < scoreComputer) {
@@ -71,7 +71,7 @@
             console.log(playRound());
             console.log('Round 5');
             console.log(playRound());
-            whoWin();
+            isWinner();
             return 'End of the game.';
         }
 
