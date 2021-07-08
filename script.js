@@ -1,19 +1,52 @@
-// computer choice
-function computerPlay() {
-    let random = Math.floor(Math.random() * 3);
-    if (random === 0) {
-        return 'Rock';
-    } else if (random === 1) {
-        return 'Paper';
-    } else {
-        return 'Scissors';
-    }
-};
-
+let computerSelection;
+let playerSelection;
 let scorePlayer = 0;
 let scoreComputer = 0;
 
+// computer choice
+const computerChoices = ['Rock', 'Paper', 'Scissors'];
+function computerPlay() {
+    return computerChoices[Math.floor(Math.random() * computerChoices.length)];
+};
+
+// calculate who is the winner of the round and add score
+function playRound(playerSelection, computerSelection) {
+    computerSelection = computerPlay().toUpperCase();
+    playerSelection = playerSelection.toUpperCase();
+    if (playerSelection == 'SCISSORS' && computerSelection === 'ROCK' ||
+        playerSelection == 'ROCK' && computerSelection === 'PAPER' ||
+        playerSelection == 'PAPER' && computerSelection === 'SCISSORS') {
+            scoreComputer++;
+            return displayResults(`You lose! ${computerSelection} beats ${playerSelection}. 
+            You ${scorePlayer} - Computer ${scoreComputer}`);
+    } else if 
+        (playerSelection == 'SCISSORS' && computerSelection === 'PAPER' ||
+         playerSelection == 'ROCK' && computerSelection === 'SCISSORS' ||
+         playerSelection == 'PAPER' && computerSelection === 'ROCK') {
+            scorePlayer++;
+            return displayResults(`You win! ${playerSelection} beats ${computerSelection}. 
+            You ${scorePlayer} - Computer ${scoreComputer}`);
+    } else {
+        return displayResults(`No winner. You ${scorePlayer} - Computer ${scoreComputer}`);
+    }
+};
+
+const btns = document.querySelectorAll("button");
+btns.forEach(button => button.addEventListener('click', () => {
+    playerSelection = button.innerText.toLowerCase(); 
+    console.log(playRound(playerSelection, computerSelection));
+  })
+);
+
+
+function displayResults(strResult) {
+    const result = document.querySelector('.results')
+    result.textContent = strResult;
+};
+
+
 // declare who is the winner of the game 
+/*
 function isWinner () {
     if (scorePlayer > scoreComputer) {
         return console.log(`Result: You won the game! You ${scorePlayer} - Computer ${scoreComputer}`);
@@ -23,35 +56,7 @@ function isWinner () {
         return console.log(`Result: Equality. You ${scorePlayer} - Computer ${scoreComputer}`);
     }
 };
-
-// calculate who is the winner of the round and add score
-function playRound(playerSelection, computerSelection) {
-    playerSelection = prompt("Rock paper scissors ?!").toLowerCase();
-    computerSelection = computerPlay();
-    if (playerSelection == 'scissors' && computerSelection === 'Rock') {
-        scoreComputer++;
-        return `You lose! Rock beats Scissors. 
-        You ${scorePlayer} - Computer ${scoreComputer}`;
-    } else if (playerSelection == 'scissors' && computerSelection === 'Paper') {
-        scorePlayer++;
-        return `You win! Scissors beats Paper. You ${scorePlayer} - Computer ${scoreComputer}`;
-    } else if (playerSelection == 'rock' && computerSelection === 'Paper') {
-        scoreComputer++;
-        return `You lose! Paper beats Rock. You ${scorePlayer} - Computer ${scoreComputer}`;
-    } else if (playerSelection == 'rock' && computerSelection === 'Scissors') {
-        scorePlayer++;
-        return `You win! Rock beats Scissors. You ${scorePlayer} - Computer ${scoreComputer}`;
-    } else if (playerSelection == 'paper' && computerSelection === 'Rock') {
-        scorePlayer++;
-        return `You win! Paper beats Rock. You ${scorePlayer} - Computer ${scoreComputer}`;
-    } else if (playerSelection == 'paper' && computerSelection === 'Scissors') {
-        scoreComputer++;
-        return `You lose! Scissors beats Paper. You ${scorePlayer} - Computer ${scoreComputer}`;
-    } else {
-        return `No winner. You ${scorePlayer} - Computer ${scoreComputer}`;
-    }
-}
-
+*/
 
 /*
 
