@@ -33,6 +33,7 @@ h1 {
     color: white;
     text-transform: uppercase;
     text-align: center;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
 .results {
@@ -40,6 +41,15 @@ h1 {
     color: #FF851B;
     text-align: center;
     font-weight: 600;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+.finalResults {
+    font-size: 35px;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
 
